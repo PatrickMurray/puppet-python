@@ -73,10 +73,14 @@ define python::virtualenv (
       $used_virtualenv = $virtualenv
     }
 
+    notify { "proxy = ${proxy}": }
+
     $proxy_flag = $proxy ? {
       false    => '',
       default  => "--proxy=${proxy}",
     }
+
+    notify { "proxy_flag = ${proxy_flag}": }
 
     $proxy_hash = $proxy ? {
       undef   => {},
