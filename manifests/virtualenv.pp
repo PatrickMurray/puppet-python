@@ -77,6 +77,7 @@ define python::virtualenv (
 
     $proxy_flag = $proxy ? {
       false    => '',
+      ''       => '',
       default  => "--proxy=${proxy}",
     }
 
